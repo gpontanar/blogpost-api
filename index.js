@@ -13,21 +13,21 @@ require('dotenv').config();
 const app = express();
 
 // Enable CORS for specific origin
-app.use(cors({
-    origin: [
-        'http://localhost:3000', // For local development
-        'https://blog-post-steel-gamma.vercel.app/', // For production
-    ],
-}));
+// app.use(cors({
+//     origin: [
+//         'http://localhost:3000', // For local development
+//         'https://blog-post-steel-gamma.vercel.app/', // For production
+//     ],
+// }));
 
 // OR CAN USE THIS: but add the key and value in render environment variables
     // Key: ALLOWED_ORIGINS
     // Value: http://localhost:3000,https://blog-post-steel-gamma.vercel.app/
-// const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(',') || [];
+const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(',') || [];
 
-// app.use(cors({
-//     origin: allowedOrigins,
-// }));
+app.use(cors({
+    origin: allowedOrigins,
+}));
 
 // Connecting to MongoDB Atlas
 mongoose.connect(process.env.MONGODB_STRING, {
