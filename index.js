@@ -16,7 +16,7 @@ const app = express();
 app.use(cors({
     origin: [
         'http://localhost:3000', // For local development
-        'https://blog-post-steel-gamma.vercel.app/', // Your Vercel frontend URL
+        'https://blog-post-steel-gamma.vercel.app/', // For production
     ],
 }));
 
